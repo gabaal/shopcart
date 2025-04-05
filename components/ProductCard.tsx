@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import AddToWishlistButton from "./AddToWishlistButton";
 import { Title } from "./ui/text";
+import PriceView from "./PriceView";
+import AddToCartButton from "./AddToCartButton";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
@@ -78,6 +80,12 @@ const ProductCard = ({ product }: { product: Product }) => {
             {(product?.stock as number) > 0 ? product?.stock : "unavailable"}
           </p>
         </div>
+        <PriceView
+          price={product?.price}
+          discount={product?.discount}
+          className="text-sm"
+        />
+        <AddToCartButton product={product} className="w-36 rounded-full" />
       </div>
     </div>
   );
